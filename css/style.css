@@ -1,0 +1,37 @@
+
+body{
+	padding: 1em;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+text{
+	font-size: 0.60em;
+}
+path.Russia{
+	fill: #eee;
+	stroke: #eee;
+
+}
+
+path.Mongolia{
+	fill: #bebebe;
+	stroke: #bebebe;
+}
+
+path.China{
+	fill: #d6d6d6;
+	stroke: #d6d6d6;
+}
+
+.rail path{
+	stroke: #333;
+	stroke-width: 1px;
+	fill: none;
+}
+
+circle{
+	fill: #e74c3c;
+}
+
+
