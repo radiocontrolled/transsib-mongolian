@@ -18,7 +18,7 @@ var height,
 	
 
 var getViewportDimensions = function(){	
-	width = document.getElementById("map").offsetWidth * 0.95;	
+	width = document.getElementById("map").offsetWidth;	
 	height = window.innerHeight * 0.90; 	
 };
 
@@ -120,11 +120,28 @@ var drawSVGMap = function(){
 			return d.City;
 		})
 		.attr({
-			//"text-anchor":"end",
-			"transform":"translate(0,-10)"
+			"transform":"translate(0,-10)",
+			"xml:space": "preserve"
 		});
 		
 	
+	// label each country 
+	map
+		.selectAll(".mapName")
+		.data(mapData.features)
+		.enter()
+		.append("text")
+		.attr({
+				"transform": function(d) {
+					return "translate(" + path.centroid(d) + ")"; 
+				},
+				
+				"class": "mapLabel"
+		})
+		.text(function(d){
+			return d.properties.name;
+		});
+		 
 	
 	
 };
@@ -167,6 +184,13 @@ function resize(map){
 		.attr({
 			"transform": function(d){
 				return "translate(" + projection([d.Lat,d.Long]) + ")";
+			}
+		})
+	
+	d3.selectAll(".mapLabel")
+		.attr({
+			"transform": function(d) {
+				return "translate(" + path.centroid(d) + ")"; 
 			}
 		})
 		

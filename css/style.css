@@ -1,12 +1,17 @@
 
 body{
-	padding: 1em;
+
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 text{
 	font-size: 0.60em;
+}
+
+.mapLabel{
+	fill: #808080;
+	font-weight: bold;
 }
 path.Russia{
 	fill: #eee;
